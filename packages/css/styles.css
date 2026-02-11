@@ -662,81 +662,207 @@ img {
 }
 
 /*==================== CERTIFICATIONS ====================*/
+/*==================== CERTIFICATIONS ====================*/
 .certifications__container {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
+  max-width: 768px;
 }
 
 .certification__card {
+  background-color: var(--container-color);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 3rem;
+  gap: 2.5rem;
   align-items: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.certification__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.certification__image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.certification__badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  animation: bounce 2s infinite;
+}
+
+.certification__badge i {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.certification__image img {
+  width: 280px;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s;
+}
+
+.certification__image:hover img {
+  transform: scale(1.05);
 }
 
 .certification__content {
   display: flex;
   flex-direction: column;
+  gap: 1.25rem;
+}
+
+.certification__title {
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+  font-weight: var(--font-semi-bold);
 }
 
 .certification__description {
   font-size: var(--normal-font-size);
   color: var(--text-color);
   line-height: 1.8;
-  margin-bottom: var(--mb-2-5);
+  text-align: justify;
 }
 
 .certification__description span {
   color: var(--first-color);
-  font-weight: var(--font-medium);
+  font-weight: var(--font-semi-bold);
 }
 
-.certification__info {
+.certification__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.certification__stat-item {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: var(--mb-2-5);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: var(--input-color);
+  border-radius: 0.5rem;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-.certification__info-title {
-  font-size: var(--h2-font-size);
+.certification__stat-item:hover {
+  transform: translateX(5px);
+  background-color: var(--first-color-lighter);
+}
+
+.certification__stat-item i {
+  font-size: 1.5rem;
+  color: var(--first-color);
+}
+
+.certification__stat-number {
+  font-size: var(--h3-font-size);
   font-weight: var(--font-semi-bold);
   color: var(--first-color);
   display: block;
-  text-align: center;
+  line-height: 1;
 }
 
-.certification__info-name {
+.certification__stat-label {
   font-size: var(--smaller-font-size);
+  color: var(--text-color);
   display: block;
-  text-align: center;
+  margin-top: 0.25rem;
 }
 
-.certification__image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.certification__image img {
-  width: 280px;
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
-@media screen and (max-width: 576px) {
+/* Tablet Responsive */
+@media screen and (max-width: 768px) {
   .certification__card {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .certification__image {
+    justify-content: center;
+  }
+  
+  .certification__image img {
+    width: 240px;
+  }
+  
+  .certification__badge {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .certification__badge i {
+    font-size: 1.25rem;
+  }
+  
+  .certification__stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile Responsive */
+@media screen and (max-width: 576px) {
+  .certification__card {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .certification__image img {
+    width: 200px;
   }
   
   .certification__content {
     text-align: center;
   }
   
-  .certification__image img {
-    width: 220px;
+  .certification__description {
+    text-align: center;
+  }
+  
+  .certification__stats {
+    gap: 1rem;
+  }
+  
+  .certification__stat-item {
+    padding: 0.75rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .certification__badge {
+    width: 40px;
+    height: 40px;
+    top: -8px;
+    right: -8px;
+  }
+  
+  .certification__badge i {
+    font-size: 1rem;
   }
 }
 
