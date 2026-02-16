@@ -992,6 +992,12 @@ img {
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.portfolio__content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
 .portfolio__img {
@@ -1020,6 +1026,36 @@ img {
   margin-bottom: var(--mb-1);
   color: var(--text-color);
   line-height: 1.7;
+}
+
+@media screen and (max-width: 767px) {
+  .portfolio__content {
+    padding: 1.25rem;
+    row-gap: 1rem;
+  }
+
+  .portfolio__data {
+    padding: 0.5rem 0 0;
+  }
+
+  .portfolio__title,
+  .portfolio__description {
+    text-align: center;
+  }
+
+  .portfolio__links {
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .portfolio__content {
+    padding: 1.5rem;
+  }
+
+  .portfolio__img {
+    max-width: 280px;
+  }
 }
 
 .portfolio__links {
