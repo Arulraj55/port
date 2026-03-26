@@ -557,6 +557,14 @@ img {
 .skill__icon.express { background: linear-gradient(135deg, #404040, #000000); }
 .skill__icon.python { background: linear-gradient(135deg, #3776ab, #ffd43b); }
 .skill__icon.mongodb { background: linear-gradient(135deg, #4db33d, #3fa037); }
+.skill__icon.mysql { background: linear-gradient(135deg, #00758f, #00a6d6); }
+.skill__icon.postgresql { background: linear-gradient(135deg, #336791, #4f8cc9); }
+.skill__icon.aws { background: linear-gradient(135deg, #ff9900, #ec7211); }
+.skill__icon.docker { background: linear-gradient(135deg, #0db7ed, #2496ed); }
+.skill__icon.cicd { background: linear-gradient(135deg, #7b61ff, #5f49d3); }
+.skill__icon.terraform { background: linear-gradient(135deg, #844fba, #5c4ee5); }
+.skill__icon.git { background: linear-gradient(135deg, #f1502f, #de4c36); }
+.skill__icon.github { background: linear-gradient(135deg, #333333, #111111); }
 
 .skill__name {
   font-size: var(--small-font-size);
@@ -661,62 +669,145 @@ img {
   font-weight: var(--font-medium);
 }
 
-/*==================== CERTIFICATIONS ====================*/
-/*==================== CERTIFICATIONS ====================*/
-.certifications__container {
-  gap: 2.5rem;
+/*==================== ACHIEVEMENTS ====================*/
+.achievements__container {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.75rem;
 }
 
-.certifications__img {
-  width: 250px;
+.achievement__card {
+  background-color: var(--container-color);
   border-radius: 1rem;
-  justify-self: center;
+  overflow: hidden;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.achievement__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+}
+
+.achievement__image-wrap {
+  position: relative;
+}
+
+.achievement__img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.achievement__content {
+  padding: 1.2rem 1.25rem 1.4rem;
+}
+
+.achievement__title {
+  font-size: var(--h3-font-size);
+  color: var(--first-color);
+  margin-bottom: 0.45rem;
+}
+
+.achievement__description {
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/*==================== CERTIFICATE ====================*/
+.certificate__container {
+  gap: 2.5rem;
+  align-items: stretch;
+}
+
+.certificate__media {
+  background-color: #fff;
+  border-radius: 1rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  display: flex;
+}
+
+.certificate__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  object-fit: contain;
   transition: transform 0.3s;
 }
 
-.certifications__img:hover {
+.certificate__img:hover {
   transform: scale(1.02);
 }
 
-.certifications__title {
+.certificate__title {
   font-size: var(--h2-font-size);
   color: var(--first-color);
   margin-bottom: var(--mb-1);
-  font-weight: var(--font-semi-bold);
 }
 
-.certifications__description {
+.certificate__data {
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.certificate__description {
   text-align: center;
-  margin-bottom: var(--mb-2-5);
   line-height: 1.8;
 }
 
-.certifications__description span {
+.certificate__description span {
   color: var(--first-color);
   font-weight: var(--font-semi-bold);
 }
 
-.certifications__info {
+.certificate__highlights {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.certificate__highlights li {
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: var(--mb-2-5);
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.6;
 }
 
-.certifications__info-title {
-  font-size: var(--h2-font-size);
-  font-weight: var(--font-semi-bold);
+.certificate__highlights i {
   color: var(--first-color);
+  font-size: 1rem;
+  margin-top: 0.2rem;
 }
 
-.certifications__info-name {
-  font-size: var(--smaller-font-size);
+.certificate__stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
 }
 
-.certifications__info-title,
-.certifications__info-name {
-  display: block;
+.certificate__stat {
+  background-color: var(--input-color);
+  border-radius: 0.75rem;
+  padding: 0.8rem;
   text-align: center;
+}
+
+.certificate__stat-value {
+  display: block;
+  color: var(--first-color);
+  font-weight: var(--font-semi-bold);
+  font-size: var(--h3-font-size);
+}
+
+.certificate__stat-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: var(--smaller-font-size);
 }
 
 /*==================== EXTRA CURRICULAR ====================*/
@@ -1393,7 +1484,8 @@ a.contact__subtitle:hover {
   }
 
   .about__container,
-  .certifications__container,
+  .certificate__container,
+  .achievements__container,
   .portfolio__content,
   .project__container,
   .contact__container,
@@ -1496,20 +1588,25 @@ a.contact__subtitle:hover {
     justify-content: initial;
   }
 
-  .certifications__container {
+  .certificate__container {
     column-gap: 5rem;
   }
 
-  .certifications__img {
-    width: 300px;
+  .certificate__img {
+    width: 100%;
   }
 
-  .certifications__description {
+  .certificate__description {
     text-align: initial;
   }
 
-  .certifications__info {
-    justify-content: space-between;
+  .certificate__data {
+    height: 100%;
+    padding: 1.75rem;
+  }
+
+  .achievements__container {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .portfolio__img {

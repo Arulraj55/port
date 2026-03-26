@@ -110,7 +110,7 @@ themeButton.addEventListener("click", () => {
 });
 
 /*==================== TYPING ANIMATION ====================*/
-const roles = ["Full Stack Developer", "Python Programmer", "Web Developer"];
+const roles = ["Full Stack Developer", "Python Programmer"];
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
