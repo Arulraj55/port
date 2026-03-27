@@ -38,10 +38,16 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                docker pull $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+
+                docker run -d -p 8083:80 --name frontend_new $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+
                 docker stop frontend || true
                 docker rm frontend || true
-                docker pull $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+
                 docker run -d -p 8082:80 --name frontend $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+
+                docker rm frontend_new || true
                 '''
             }
         }
