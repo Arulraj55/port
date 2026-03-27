@@ -40,14 +40,40 @@ pipeline {
                 sh '''
                 docker pull $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
 
-                docker run -d -p 8083:80 --name frontend_new $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
-
                 docker stop frontend || true
                 docker rm frontend || true
 
-                docker run -d -p 8082:80 --name frontend $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+                docker run -d -p 8082:80 --restart always --name frontend \
+                $AWS_ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$REPO_NAME:$IMAGE_TAG
+                '''
+            }
+        }
 
-                docker rm frontend_new || true
+        stage('Cleanup') {
+            steps {
+                sh 'docker system prune -f'
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh '''
+                sleep 5
+                curl -f http://localhost || exit 1
+                '''
+            }
+        }
+
+        stage('Rollback') {
+            when {
+                expression { currentBuild.currentResult == 'FAILURE' }
+            }
+            steps {
+                sh '''
+                echo "Rolling back..."
+                docker stop frontend || true
+                docker rm frontend || true
+                docker run -d -p 8082:80 244005320152.dkr.ecr.ap-south-1.amazonaws.com/frontend-app:7
                 '''
             }
         }
