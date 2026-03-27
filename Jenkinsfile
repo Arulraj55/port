@@ -41,12 +41,13 @@ pipeline {
             }
         }
 
-        stage('Deploy Container') {
+        stage('Deploy') {
             steps {
                 sh '''
                 docker stop frontend || true
                 docker rm frontend || true
-                docker run -d -p 8082:80 --name frontend $ECR_REPO:latest
+                docker pull 244005320152.dkr.ecr.ap-south-1.amazonaws.com/frontend-app:latest
+                docker run -d -p 8082:80 --name frontend 244005320152.dkr.ecr.ap-south-1.amazonaws.com/frontend-app:latest
                 '''
             }
         }
