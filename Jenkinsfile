@@ -2,11 +2,8 @@ pipeline {
     agent any
 
     environment {
-        AWS_REGION = 'ap-south-1'
-        ECR_REPO = '244005320152.dkr.ecr.ap-south-1.amazonaws.com/frontend-app'
-        IMAGE_TAG = 'latest'
-        CONTAINER_NAME = 'frontend'
-        PORT = '8082'
+        AWS_REGION = "ap-south-1"
+        ECR_REPO = "244005320152.dkr.ecr.ap-south-1.amazonaws.com/frontend-app"
     }
 
     stages {
@@ -23,35 +20,33 @@ pipeline {
             }
         }
 
-        stage('Tag Image') {
-            steps {
-                sh 'docker tag frontend-app:latest $ECR_REPO:$IMAGE_TAG'
-            }
-        }
-
         stage('Login to ECR') {
             steps {
                 sh '''
-                aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
+                aws ecr get-login-password --region $AWS_REGION \
+                | docker login --username AWS --password-stdin $ECR_REPO
                 '''
+            }
+        }
+
+        stage('Tag Image') {
+            steps {
+                sh 'docker tag frontend-app:latest $ECR_REPO:latest'
             }
         }
 
         stage('Push to ECR') {
             steps {
-                sh 'docker push $ECR_REPO:$IMAGE_TAG'
+                sh 'docker push $ECR_REPO:latest'
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy Container') {
             steps {
                 sh '''
-                docker pull $ECR_REPO:$IMAGE_TAG
-
-                docker stop $CONTAINER_NAME || true
-                docker rm $CONTAINER_NAME || true
-
-                docker run -d -p $PORT:80 --name $CONTAINER_NAME $ECR_REPO:$IMAGE_TAG
+                docker stop frontend || true
+                docker rm frontend || true
+                docker run -d -p 8082:80 --name frontend $ECR_REPO:latest
                 '''
             }
         }
