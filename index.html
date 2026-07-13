@@ -114,7 +114,9 @@
             <span class="section__subtitle">My Introduction</span>
 
             <div class="about__container container grid">
-                <img src="packages/images/arul.jpeg" alt="Arulraj Jebasingh" class="about__img">
+                <div class="about__media">
+                    <img src="packages/images/arul.jpeg" alt="Arulraj Jebasingh" class="about__img">
+                </div>
                 <div class="about__data">
                     <p class="about__description">
                         Motivated software developer with a solid foundation in Computer Science and proficiency in 
@@ -123,11 +125,11 @@
                     </p>
                     <div class="about__info">
                         <div>
-                            <span class="about__info-title">15</span>
+                            <span class="about__info-title">26+</span>
                             <span class="about__info-name">Technical<br>Skills</span>
                         </div>
                         <div>
-                            <span class="about__info-title">5+</span>
+                            <span class="about__info-title">7+</span>
                             <span class="about__info-name">Completed<br>Projects</span>
                         </div>
                     </div>
@@ -147,17 +149,23 @@
 
             <div class="skills__container container">
                 <div class="skills__grid">
-                    <!-- Languages -->
+                    <!-- Frontend -->
                     <div class="skills__group">
                         <h3 class="skills__group-title">
-                            <i class="uil uil-brackets-curly"></i> Languages
+                            <i class="uil uil-window"></i> Frontend
                         </h3>
                         <div class="skills__list-items">
                             <div class="skill__item">
-                                <div class="skill__icon python">
-                                    <i class="uil uil-brackets-curly"></i>
+                                <div class="skill__icon html">
+                                    <i class="uil uil-html5"></i>
                                 </div>
-                                <span class="skill__name">Python</span>
+                                <span class="skill__name">HTML5</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon css">
+                                    <i class="uil uil-css3-simple"></i>
+                                </div>
+                                <span class="skill__name">CSS3</span>
                             </div>
                             <div class="skill__item">
                                 <div class="skill__icon js">
@@ -165,27 +173,33 @@
                                 </div>
                                 <span class="skill__name">JavaScript</span>
                             </div>
+                            <div class="skill__item">
+                                <div class="skill__icon react">
+                                    <i class="uil uil-atom"></i>
+                                </div>
+                                <span class="skill__name">React.js</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon vite">
+                                    <i class="uil uil-bolt"></i>
+                                </div>
+                                <span class="skill__name">Vite</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon tailwind">
+                                    <i class="uil uil-wind"></i>
+                                </div>
+                                <span class="skill__name">Tailwind CSS</span>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Web -->
+                    <!-- Backend -->
                     <div class="skills__group">
                         <h3 class="skills__group-title">
-                            <i class="uil uil-window"></i> Web
+                            <i class="uil uil-server"></i> Backend
                         </h3>
                         <div class="skills__list-items">
-                            <div class="skill__item">
-                                <div class="skill__icon html">
-                                    <i class="uil uil-html5"></i>
-                                </div>
-                                <span class="skill__name">HTML</span>
-                            </div>
-                            <div class="skill__item">
-                                <div class="skill__icon css">
-                                    <i class="uil uil-css3-simple"></i>
-                                </div>
-                                <span class="skill__name">CSS</span>
-                            </div>
                             <div class="skill__item">
                                 <div class="skill__icon node">
                                     <i class="uil uil-brackets-curly"></i>
@@ -198,6 +212,30 @@
                                 </div>
                                 <span class="skill__name">Express.js</span>
                             </div>
+                            <div class="skill__item">
+                                <div class="skill__icon python">
+                                    <i class="uil uil-brackets-curly"></i>
+                                </div>
+                                <span class="skill__name">Python</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon flask">
+                                    <i class="uil uil-server"></i>
+                                </div>
+                                <span class="skill__name">Flask</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon fastapi">
+                                    <i class="uil uil-bolt-alt"></i>
+                                </div>
+                                <span class="skill__name">FastAPI</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon aiohttp">
+                                    <i class="uil uil-sync"></i>
+                                </div>
+                                <span class="skill__name">aiohttp</span>
+                            </div>
                         </div>
                     </div>
 
@@ -208,10 +246,16 @@
                         </h3>
                         <div class="skills__list-items">
                             <div class="skill__item">
-                                <div class="skill__icon mysql">
+                                <div class="skill__icon mongodb">
                                     <i class="uil uil-database"></i>
                                 </div>
-                                <span class="skill__name">MySQL</span>
+                                <span class="skill__name">MongoDB</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon mongoose">
+                                    <i class="uil uil-database"></i>
+                                </div>
+                                <span class="skill__name">Mongoose</span>
                             </div>
                             <div class="skill__item">
                                 <div class="skill__icon postgresql">
@@ -220,64 +264,115 @@
                                 <span class="skill__name">PostgreSQL</span>
                             </div>
                             <div class="skill__item">
-                                <div class="skill__icon mongodb">
+                                <div class="skill__icon chromadb">
                                     <i class="uil uil-database"></i>
                                 </div>
-                                <span class="skill__name">MongoDB</span>
+                                <span class="skill__name">ChromaDB</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Cloud & DevOps -->
+                    <!-- AI & ML -->
                     <div class="skills__group">
                         <h3 class="skills__group-title">
-                            <i class="uil uil-cloud"></i> Cloud & DevOps
+                            <i class="uil uil-brain"></i> AI & ML
                         </h3>
                         <div class="skills__list-items">
                             <div class="skill__item">
-                                <div class="skill__icon aws">
-                                    <i class="uil uil-cloud"></i>
+                                <div class="skill__icon langchain">
+                                    <i class="uil uil-processor"></i>
                                 </div>
-                                <span class="skill__name">AWS</span>
+                                <span class="skill__name">LangChain</span>
                             </div>
                             <div class="skill__item">
-                                <div class="skill__icon docker">
-                                    <i class="uil uil-box"></i>
+                                <div class="skill__icon langgraph">
+                                    <i class="uil uil-chart-network"></i>
                                 </div>
-                                <span class="skill__name">Docker</span>
+                                <span class="skill__name">LangGraph</span>
                             </div>
                             <div class="skill__item">
-                                <div class="skill__icon cicd">
-                                    <i class="uil uil-sync"></i>
+                                <div class="skill__icon openrouter">
+                                    <i class="uil uil-circuit"></i>
                                 </div>
-                                <span class="skill__name">CI/CD Pipelines</span>
+                                <span class="skill__name">OpenRouter</span>
                             </div>
                             <div class="skill__item">
-                                <div class="skill__icon terraform">
-                                    <i class="uil uil-server"></i>
+                                <div class="skill__icon scikit">
+                                    <i class="uil uil-brain"></i>
                                 </div>
-                                <span class="skill__name">Terraform</span>
+                                <span class="skill__name">Scikit-learn</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Tools -->
+                    <!-- Security -->
                     <div class="skills__group">
                         <h3 class="skills__group-title">
-                            <i class="uil uil-wrench"></i> Tools
+                            <i class="uil uil-lock"></i> Security
                         </h3>
                         <div class="skills__list-items">
                             <div class="skill__item">
-                                <div class="skill__icon git">
-                                    <i class="uil uil-code-branch"></i>
+                                <div class="skill__icon jwt">
+                                    <i class="uil uil-key-skeleton"></i>
                                 </div>
-                                <span class="skill__name">Git</span>
+                                <span class="skill__name">JWT</span>
                             </div>
                             <div class="skill__item">
-                                <div class="skill__icon github">
-                                    <i class="uil uil-github-alt"></i>
+                                <div class="skill__icon firebase">
+                                    <i class="uil uil-cloud-database-alt"></i>
                                 </div>
-                                <span class="skill__name">GitHub</span>
+                                <span class="skill__name">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Real-Time -->
+                    <div class="skills__group">
+                        <h3 class="skills__group-title">
+                            <i class="uil uil-exchange-alt"></i> Real-Time
+                        </h3>
+                        <div class="skills__list-items">
+                            <div class="skill__item">
+                                <div class="skill__icon websockets">
+                                    <i class="uil uil-exchange-alt"></i>
+                                </div>
+                                <span class="skill__name">WebSockets</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payments -->
+                    <div class="skills__group">
+                        <h3 class="skills__group-title">
+                            <i class="uil uil-credit-card"></i> Payments
+                        </h3>
+                        <div class="skills__list-items">
+                            <div class="skill__item">
+                                <div class="skill__icon stripe">
+                                    <i class="uil uil-credit-card"></i>
+                                </div>
+                                <span class="skill__name">Stripe</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics & BI -->
+                    <div class="skills__group">
+                        <h3 class="skills__group-title">
+                            <i class="uil uil-chart-line"></i> Analytics & BI
+                        </h3>
+                        <div class="skills__list-items">
+                            <div class="skill__item">
+                                <div class="skill__icon chartjs">
+                                    <i class="uil uil-chart-line"></i>
+                                </div>
+                                <span class="skill__name">Chart.js</span>
+                            </div>
+                            <div class="skill__item">
+                                <div class="skill__icon powerbi">
+                                    <i class="uil uil-chart-bar"></i>
+                                </div>
+                                <span class="skill__name">Power BI</span>
                             </div>
                         </div>
                     </div>
@@ -367,7 +462,23 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 2 ====================-->
+                    <!--==================== PROJECT 2: DeptOps AI ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="./packages/images/deptops_ai.jpg" alt="DeptOps AI" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">DeptOps AI</h3>
+                            <p class="portfolio__description">
+                                An Agentic AI assistant for Academic Department Management. Features specialized agents for analytics, policy QA, and automated website testing.
+                            </p>
+                            <div class="portfolio__links">
+                                <a href="https://deptops-ai.onrender.com" target="_blank" class="button button--flex button--small portfolio__button">
+                                    Live Demo<i class="uil uil-external-link-alt button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== PROJECT 3 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/scag.jpg" alt="Smartcart Clothes Gifts" class="portfolio__img">
                         <div class="portfolio__data">
@@ -384,7 +495,23 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 3 ====================-->
+                    <!--==================== PROJECT 4: SmartBI ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="./packages/images/smartbi.jpg" alt="SmartBI" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">SmartBI</h3>
+                            <p class="portfolio__description">
+                                An intelligent business analytics platform. Automatically detects business domains from Excel uploads, cleans data, and exports Power BI-ready SQL views.
+                            </p>
+                            <div class="portfolio__links">
+                                <a href="https://smartbi-backend.onrender.com" target="_blank" class="button button--flex button--small portfolio__button">
+                                    Live Demo<i class="uil uil-external-link-alt button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== PROJECT 5 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/pses.jpg" alt="Programming Skill Enhancement System" class="portfolio__img">
                         <div class="portfolio__data">
@@ -401,7 +528,7 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 4 ====================-->
+                    <!--==================== PROJECT 6 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/auction.jpg" alt="IPL Auction" class="portfolio__img">
                         <div class="portfolio__data">
@@ -418,7 +545,7 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 5 ====================-->
+                    <!--==================== PROJECT 7 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/history.jpg" alt="Animated History Hub" class="portfolio__img">
                         <div class="portfolio__data">
@@ -544,7 +671,7 @@
         <div class="footer__bg">
             <div class="footer__container container grid">
                 <div>
-                    <h1 class="footer__title">Arulraj Jebasingh E</h1>
+                    <h1 class="footer__title">Arulraj<br>Jebasingh E</h1>
                     <span class="footer__subtitle">Full Stack Developer</span>
                 </div>
 

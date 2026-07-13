@@ -230,6 +230,7 @@ img {
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
+
 .nav__link {
   display: flex;
   flex-direction: column;
@@ -374,6 +375,7 @@ img {
 .home__scroll-arrow {
   font-size: 1.25rem;
 }
+
 /*==================== BUTTONS ====================*/
 
 .button {
@@ -427,19 +429,34 @@ img {
 
 /*==================== ABOUT ====================*/
 .about__container {
-  gap: 2.5rem;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.about__media {
+  background-color: var(--input-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .about__img {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   border-radius: 1rem;
-  justify-self: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
 }
 
 .about__img:hover {
   transform: scale(1.02);
+}
+
+.about__data {
+  padding: 2rem;
 }
 
 .about__description {
@@ -486,9 +503,10 @@ img {
 }
 
 .skills__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
 
 .skills__group {
@@ -497,6 +515,8 @@ img {
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 1 300px;
+  max-width: 320px;
 }
 
 .skills__group:hover {
@@ -510,6 +530,7 @@ img {
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -518,23 +539,25 @@ img {
 }
 
 .skills__list-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
+  justify-content: center;
 }
 
 .skill__item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.75rem;
+  padding: 0.75rem 1rem;
   background-color: var(--input-color);
   border-radius: 0.5rem;
   transition: transform 0.3s, background-color 0.3s;
+  width: 145px;
 }
 
 .skill__item:hover {
-  transform: translateX(5px);
+  transform: scale(1.05);
   background-color: var(--first-color-lighter);
 }
 
@@ -549,22 +572,110 @@ img {
   color: #fff;
 }
 
-.skill__icon.html { background: linear-gradient(135deg, #e34c26, #f06529); }
-.skill__icon.css { background: linear-gradient(135deg, #264de4, #2965f1); }
-.skill__icon.js { background: linear-gradient(135deg, #f0db4f, #d4c22a); color: #323330; }
-.skill__icon.react { background: linear-gradient(135deg, #61dafb, #21a1c4); }
-.skill__icon.node { background: linear-gradient(135deg, #68a063, #3c873a); }
-.skill__icon.express { background: linear-gradient(135deg, #404040, #000000); }
-.skill__icon.python { background: linear-gradient(135deg, #3776ab, #ffd43b); }
-.skill__icon.mongodb { background: linear-gradient(135deg, #4db33d, #3fa037); }
-.skill__icon.mysql { background: linear-gradient(135deg, #00758f, #00a6d6); }
-.skill__icon.postgresql { background: linear-gradient(135deg, #336791, #4f8cc9); }
-.skill__icon.aws { background: linear-gradient(135deg, #ff9900, #ec7211); }
-.skill__icon.docker { background: linear-gradient(135deg, #0db7ed, #2496ed); }
-.skill__icon.cicd { background: linear-gradient(135deg, #7b61ff, #5f49d3); }
-.skill__icon.terraform { background: linear-gradient(135deg, #844fba, #5c4ee5); }
-.skill__icon.git { background: linear-gradient(135deg, #f1502f, #de4c36); }
-.skill__icon.github { background: linear-gradient(135deg, #333333, #111111); }
+.skill__icon.html {
+  background: linear-gradient(135deg, #e34c26, #f06529);
+}
+
+.skill__icon.css {
+  background: linear-gradient(135deg, #264de4, #2965f1);
+}
+
+.skill__icon.js {
+  background: linear-gradient(135deg, #f0db4f, #d4c22a);
+  color: #323330;
+}
+
+.skill__icon.react {
+  background: linear-gradient(135deg, #61dafb, #21a1c4);
+}
+
+.skill__icon.vite {
+  background: linear-gradient(135deg, #bd34fe, #ffea83);
+}
+
+.skill__icon.tailwind {
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+}
+
+.skill__icon.node {
+  background: linear-gradient(135deg, #68a063, #3c873a);
+}
+
+.skill__icon.express {
+  background: linear-gradient(135deg, #404040, #111111);
+}
+
+.skill__icon.python {
+  background: linear-gradient(135deg, #3776ab, #ffd43b);
+}
+
+.skill__icon.flask {
+  background: linear-gradient(135deg, #1e1e1e, #4a4a4a);
+}
+
+.skill__icon.fastapi {
+  background: linear-gradient(135deg, #009688, #00e5ff);
+}
+
+.skill__icon.aiohttp {
+  background: linear-gradient(135deg, #2c3e50, #1abc9c);
+}
+
+.skill__icon.mongodb {
+  background: linear-gradient(135deg, #4db33d, #3fa037);
+}
+
+.skill__icon.mongoose {
+  background: linear-gradient(135deg, #880000, #e91e63);
+}
+
+.skill__icon.postgresql {
+  background: linear-gradient(135deg, #336791, #4f8cc9);
+}
+
+.skill__icon.chromadb {
+  background: linear-gradient(135deg, #ff4e50, #f9d423);
+}
+
+.skill__icon.langchain {
+  background: linear-gradient(135deg, #121212, #607d8b);
+}
+
+.skill__icon.langgraph {
+  background: linear-gradient(135deg, #e65100, #ffb74d);
+}
+
+.skill__icon.openrouter {
+  background: linear-gradient(135deg, #7c4dff, #ea80fc);
+}
+
+.skill__icon.scikit {
+  background: linear-gradient(135deg, #f89939, #ffcc80);
+}
+
+.skill__icon.jwt {
+  background: linear-gradient(135deg, #d63384, #f857a6);
+}
+
+.skill__icon.firebase {
+  background: linear-gradient(135deg, #ffca28, #f57c00);
+}
+
+.skill__icon.websockets {
+  background: linear-gradient(135deg, #00b0ff, #2979ff);
+}
+
+.skill__icon.stripe {
+  background: linear-gradient(135deg, #635bff, #8075ff);
+}
+
+.skill__icon.chartjs {
+  background: linear-gradient(135deg, #ff6384, #ff9f40);
+}
+
+.skill__icon.powerbi {
+  background: linear-gradient(135deg, #f2c811, #fff9c4);
+}
 
 .skill__name {
   font-size: var(--small-font-size);
@@ -713,25 +824,25 @@ img {
   line-height: 1.7;
 }
 
-/*==================== CERTIFICATE ====================*/
 .certificate__container {
-  gap: 2.5rem;
-  align-items: stretch;
+  background-color: var(--container-color);
+  border-radius: 1rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
 }
 
 .certificate__media {
-  background-color: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 0.75rem;
+  background-color: var(--input-color);
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .certificate__img {
   width: 100%;
-  height: 100%;
+  max-width: 250px;
   border-radius: 0.75rem;
-  object-fit: contain;
   transition: transform 0.3s;
 }
 
@@ -746,10 +857,7 @@ img {
 }
 
 .certificate__data {
-  background-color: var(--container-color);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1176,7 +1284,7 @@ img {
   right: -0.5rem;
 }
 
-.swiper-container-horizontal > .swiper-pagination-bullets {
+.swiper-container-horizontal>.swiper-pagination-bullets {
   bottom: -2.5rem;
 }
 
@@ -1189,6 +1297,7 @@ img {
 .swiper-pagination-bullet {
   outline: none;
 }
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;
@@ -1330,58 +1439,75 @@ a.contact__subtitle:hover {
 
 /*==================== FOOTER ====================*/
 .footer {
-  padding-top: 2rem;
-}
-
-.footer__container {
-  row-gap: 3.5rem;
+  padding: 0.5rem 0;
 }
 
 .footer__bg {
   background-color: var(--first-color-second);
-  padding: 2rem 0 3rem;
+  padding: 0.5rem 0;
 }
 
-.footer__title {
-  font-size: var(--h1-font-size);
-  margin-bottom: var(--mb-0-25);
-}
-
-.footer__subtitle {
-  font-size: var(--small-font-size);
-}
-
-.footer__links {
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
-}
-
-.footer__link:hover {
-  color: var(--first-color-lighter);
-}
-
-.footer__social {
-  font-size: 1.25rem;
-  margin-right: var(--mb-1-5);
-}
-
-.footer__social:hover {
-  color: var(--first-color-lighter);
+.footer__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0.5rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer__copy {
   font-size: var(--smaller-font-size);
   text-align: center;
   color: var(--text-color-light);
-  margin-top: var(--mb-3);
+  margin-top: 0.5rem;
 }
 
-.footer__title,
-.footer__subtitle,
-.footer__link,
-.footer__social {
+.footer__subtitle {
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  column-gap: 2rem;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+
+.footer__link {
   color: #fff;
+  transition: color 0.3s;
+}
+
+.footer__link:hover {
+  color: var(--first-color-lighter);
+}
+
+.footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.footer__social {
+  font-size: 1.25rem;
+  color: #fff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer__social:hover {
+  color: var(--first-color-lighter);
+  transform: translateY(-3px);
+}
+
+.footer__copy {
+  font-size: var(--smaller-font-size);
+  text-align: center;
+  color: var(--text-color-light);
+  margin-top: 3rem;
 }
 
 /*========== SCROLL UP ==========*/
@@ -1488,12 +1614,7 @@ a.contact__subtitle:hover {
   .achievements__container,
   .portfolio__content,
   .project__container,
-  .contact__container,
-  .footer__container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .skills__grid {
+  .contact__container {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -1569,27 +1690,23 @@ a.contact__subtitle:hover {
   }
 
   .about__container {
-    column-gap: 5rem;
-  }
-
-  .about__img {
-    width: 300px;
+    column-gap: 0;
   }
 
   .about__description {
-    text-align: initial;
+    text-align: center;
   }
 
   .about__info {
-    justify-content: space-between;
+    justify-content: space-evenly;
   }
 
   .about__buttons {
-    justify-content: initial;
+    justify-content: center;
   }
 
   .certificate__container {
-    column-gap: 5rem;
+    column-gap: 0;
   }
 
   .certificate__img {
@@ -1597,7 +1714,7 @@ a.contact__subtitle:hover {
   }
 
   .certificate__description {
-    text-align: initial;
+    text-align: center;
   }
 
   .certificate__data {
@@ -1617,9 +1734,7 @@ a.contact__subtitle:hover {
     align-items: center;
   }
 
-  .project {
-    text-align: initial;
-  }
+
 
   .project__bg {
     background: none;
@@ -1661,6 +1776,10 @@ a.contact__subtitle:hover {
 
 /* For large devices */
 @media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+
   body {
     margin: 0;
   }
@@ -1688,9 +1807,7 @@ a.contact__subtitle:hover {
     width: 350px;
   }
 
-  .skills__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
 
   .portfolio__content {
     grid-template-columns: 1fr 1fr;
@@ -1718,7 +1835,7 @@ a.contact__subtitle:hover {
     right: -3.5rem;
   }
 
-  .swiper-container-horizontal > .swiper-pagination-bullets {
+  .swiper-container-horizontal>.swiper-pagination-bullets {
     bottom: -4.5rem;
   }
 
