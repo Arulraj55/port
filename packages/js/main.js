@@ -154,8 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
 /*==================== SMOOTH SCROLL FOR ANCHOR LINKS ====================*/
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    if (href === "#") return; // let bare # links work natively
     e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
+    const target = document.querySelector(href);
     if (target) {
       target.scrollIntoView({
         behavior: "smooth",
@@ -164,3 +166,67 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     }
   });
 });
+
+/*==================== IMAGE LIGHTBOX ====================*/
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+const lightboxOverlay = lightbox.querySelector('.lightbox__overlay');
+
+// Open lightbox when any portfolio image is clicked
+document.querySelectorAll('.portfolio__img').forEach((img) => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+// Close on × button or overlay click
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightboxOverlay.addEventListener('click', closeLightbox);
+
+// Close on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+/*==================== CONTACT FORM - EMAILJS ====================*/
+const contactForm = document.getElementById('contact-form');
+const sendBtn     = document.getElementById('send-btn');
+const formStatus  = document.getElementById('form-status');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Loading state
+    sendBtn.disabled = true;
+    sendBtn.innerHTML = 'Sending...<i class="uil uil-spinner-alt button__icon"></i>';
+    formStatus.textContent = '';
+    formStatus.className = 'form__status';
+
+    emailjs.sendForm(
+      'service_l9nk41c',   // ← replace with your EmailJS Service ID
+      'template_lcac4ws',  // ← replace with your EmailJS Template ID
+      this
+    ).then(() => {
+      formStatus.textContent = '✅ Message sent! I\'ll get back to you soon.';
+      formStatus.classList.add('form__status--success');
+      contactForm.reset();
+    }).catch((error) => {
+      formStatus.textContent = '❌ Something went wrong. Please try again.';
+      formStatus.classList.add('form__status--error');
+      console.error('EmailJS error:', error);
+    }).finally(() => {
+      sendBtn.disabled = false;
+      sendBtn.innerHTML = 'Send Message<i class="uil uil-message button__icon"></i>';
+    });
+  });
+}

@@ -1202,6 +1202,9 @@ img {
 .portfolio__img {
   width: 100%;
   max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 0.75rem;
   justify-self: center;
   transition: transform 0.3s;
@@ -1851,4 +1854,103 @@ a.contact__subtitle:hover {
   .contact__inputs {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/*==================== LIGHTBOX ====================*/
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.88);
+  cursor: pointer;
+}
+
+.lightbox__content {
+  position: relative;
+  z-index: 1;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  border-radius: 0.75rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  object-fit: contain;
+  transform: scale(0.85);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.active .lightbox__img {
+  transform: scale(1);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: -2.5rem;
+  right: 0;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+/* Make portfolio images show a zoom cursor */
+.portfolio__img {
+  cursor: zoom-in;
+}
+
+/*==================== FORM STATUS ====================*/
+.form__status {
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+  text-align: center;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.form__status--success {
+  color: #16a34a;
+  background-color: #dcfce7;
+}
+
+.form__status--error {
+  color: #dc2626;
+  background-color: #fee2e2;
 }

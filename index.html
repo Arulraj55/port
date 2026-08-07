@@ -13,6 +13,14 @@
     <!--==================== CSS ====================-->
     <link rel="stylesheet" href="./packages/css/styles.css">
 
+    <!--==================== EMAILJS ====================-->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("owhjo9B0hiNaFMWZb"); // ← replace with your EmailJS Public Key
+        })();
+    </script>
+
     <title>Arulraj Jebasingh E | Portfolio</title>
 </head>
 <body>
@@ -129,7 +137,7 @@
                             <span class="about__info-name">Technical<br>Skills</span>
                         </div>
                         <div>
-                            <span class="about__info-title">7+</span>
+                            <span class="about__info-title">8+</span>
                             <span class="about__info-name">Completed<br>Projects</span>
                         </div>
                     </div>
@@ -495,7 +503,23 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 4: SmartBI ====================-->
+                    <!--==================== PROJECT 4: Syllabus Topics ====================-->
+                    <div class="portfolio__content grid swiper-slide">
+                        <img src="./packages/images/sttpi.jpeg" alt="Syllabus Topics" class="portfolio__img">
+                        <div class="portfolio__data">
+                            <h3 class="portfolio__title">Syllabus Topics</h3>
+                            <p class="portfolio__description">
+                                A fully responsive web application with a clean, polished UI that adapts beautifully across all devices and screen sizes.
+                            </p>
+                            <div class="portfolio__links">
+                                <a href="https://sttpi.onrender.com/" target="_blank" class="button button--flex button--small portfolio__button">
+                                    Live Demo<i class="uil uil-external-link-alt button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--==================== PROJECT 5: SmartBI ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/smartbi.jpg" alt="SmartBI" class="portfolio__img">
                         <div class="portfolio__data">
@@ -511,7 +535,7 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 5 ====================-->
+                    <!--==================== PROJECT 6 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/pses.jpg" alt="Programming Skill Enhancement System" class="portfolio__img">
                         <div class="portfolio__data">
@@ -528,7 +552,7 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 6 ====================-->
+                    <!--==================== PROJECT 7 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/auction.jpg" alt="IPL Auction" class="portfolio__img">
                         <div class="portfolio__data">
@@ -545,7 +569,7 @@
                         </div>
                     </div>
 
-                    <!--==================== PROJECT 7 ====================-->
+                    <!--==================== PROJECT 8 ====================-->
                     <div class="portfolio__content grid swiper-slide">
                         <img src="./packages/images/history.jpg" alt="Animated History Hub" class="portfolio__img">
                         <div class="portfolio__data">
@@ -632,39 +656,52 @@
 
                 </div>
 
-                <form action="mailto:arulrajjebasingh06@gmail.com" method="POST" enctype="text/plain" class="contact__form grid">
+                <form id="contact-form" class="contact__form grid">
                     <div class="contact__inputs grid">
                         <div class="contact__content">
                             <label class="contact__label">Name</label>
-                            <input type="text" name="Name" class="contact__input" required>
+                            <input type="text" id="user_name" name="user_name" class="contact__input" placeholder="Your name" required>
                         </div>
 
                         <div class="contact__content">
                             <label class="contact__label">Email</label>
-                            <input type="email" name="Email" class="contact__input" required>
+                            <input type="email" id="user_email" name="user_email" class="contact__input" placeholder="Your email" required>
                         </div>
                     </div>
 
                     <div class="contact__content">
                         <label class="contact__label">Subject</label>
-                        <input type="text" name="Subject" class="contact__input" required>
+                        <input type="text" id="subject" name="subject" class="contact__input" placeholder="Subject" required>
                     </div>
 
                     <div class="contact__content">
                         <label class="contact__label">Message</label>
-                        <textarea name="Message" cols="0" rows="7" class="contact__input" required></textarea>
+                        <textarea id="message" name="message" cols="0" rows="7" class="contact__input" placeholder="Your message..." required></textarea>
                     </div>
 
                     <div>
-                        <button type="submit" class="button button--flex">
+                        <button type="submit" class="button button--flex" id="send-btn">
                             Send Message<i class="uil uil-message button__icon"></i>
                         </button>
                     </div>
+
+                    <p id="form-status" class="form__status"></p>
                 </form>
             </div>
         </section>
 
     </main>
+
+    <!--==================== IMAGE LIGHTBOX ====================-->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox__overlay"></div>
+        <div class="lightbox__content">
+            <button class="lightbox__close" id="lightbox-close" aria-label="Close image">
+                <i class="uil uil-times"></i>
+            </button>
+            <img src="" alt="" class="lightbox__img" id="lightbox-img">
+        </div>
+    </div>
 
     <!--==================== FOOTER ====================-->
     <footer class="footer">
@@ -707,7 +744,7 @@
     </footer>
 
     <!--==================== SCROLL TOP ====================-->
-    <a href="#" class="scrollup" id="scroll-up">
+    <a href="#home" class="scrollup" id="scroll-up">
         <i class="uil uil-arrow-up scrollup__icon"></i>
     </a>
     
